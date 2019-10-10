@@ -60,8 +60,9 @@ return(
             active="true"
             containerStyle={{ }}
             style={{ backgroundColor: 'blue' }}
+            onPress={() => {this.props.navigation.navigate('createWebtoon')}}
             position="bottomRight">
-            <Icon name="ios-arrow-up" />
+            <Icon name="md-add" />
         </Fab>
     </View>
 </View>
