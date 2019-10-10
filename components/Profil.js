@@ -6,6 +6,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import editPage from './profile/Edit'
 import myWebtoonPage from './profile/Mywebtoonpage'
 import createWebtoonPage from './profile/create'
+import createEpisodePage from './profile/createepisode'
 
 const name = 'Your Name';
 const image = '../assets/image/user.png'
@@ -82,6 +83,12 @@ const appNavigator = createStackNavigator({
   },
   createWebtoon : {
     screen : createWebtoonPage,
+    navigationOptions:{
+      header:null
+    }
+  },
+  createEpisode : {
+    screen : createEpisodePage,
     navigationOptions:{
       header:null
     }
