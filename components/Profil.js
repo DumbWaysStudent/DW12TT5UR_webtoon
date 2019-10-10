@@ -4,6 +4,7 @@ import { Form,Left, Right, Picker, Icon, Button, Item, Label, Input, Header, Tit
 import { createStackNavigator } from 'react-navigation-stack';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import editPage from './profile/Edit'
+import myWebtoonPage from './profile/Mywebtoonpage'
 
 const name = 'Your Name';
 const image = '../assets/image/user.png'
@@ -51,7 +52,7 @@ return(
         
       </View>
       <View>
-        <Button iconRight info style={styles.buttonProfile}><Text style={styles.textButtonProfile}>My Webtoon Creation</Text><Icon name="ios-arrow-forward"/></Button>
+        <Button onPress={() => {this.props.navigation.navigate('webtoon')}} iconRight info style={styles.buttonProfile}><Text style={styles.textButtonProfile}>My Webtoon Creation</Text><Icon name="ios-arrow-forward"/></Button>
         <Button info style={styles.buttonProfile}><Text style={styles.textButtonProfile}>Log Out</Text></Button>
       </View>
     </View>
@@ -68,6 +69,12 @@ const appNavigator = createStackNavigator({
   },
     edit : {
     screen : editPage,
+    navigationOptions:{
+      header:null
+    }
+  },
+  webtoon : {
+    screen : myWebtoonPage,
     navigationOptions:{
       header:null
     }
