@@ -6,15 +6,6 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 
-// const AppStack = createStackNavigator({
-//   Login : {
-//     screen : Login
-//   }
-// })
-
-// export default createAppContainer(AppStack)
-
-
 export default class App extends Component  {
 
 

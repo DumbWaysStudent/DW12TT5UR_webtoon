@@ -5,6 +5,7 @@ import Slideshow from 'react-native-slideshow';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import detailPage from './Webtoons/Detail'
 import { createStackNavigator } from 'react-navigation-stack';
+import episodePage from './Webtoons/Episode'
 
 
 
@@ -141,6 +142,12 @@ const appNavigator = createStackNavigator({
   },
    detail : {
     screen : detailPage,
+    navigationOptions:{
+      header:null
+    }
+  },
+  episode : {
+    screen : episodePage,
     navigationOptions:{
       header:null
     }

@@ -102,7 +102,7 @@ return(
     <View style={styles.buttonLogin}>
       {
         this.state.inputPassword == '' || this.state.emailVerification == false ?
-        <Button onPress={() => this.props.navigation.navigate('home')} title="Log IN"><Text style={styles.buttonLoginText}>Log In</Text></Button>
+        <Button disabled onPress={() => this.props.navigation.navigate('home')} title="Log IN"><Text style={styles.buttonLoginText}>Log In</Text></Button>
         :
         <Button title="Log IN" onPress={() => this.props.navigation.navigate('home')}><Text style={styles.buttonLoginText}>Log In</Text></Button>
       }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, Alert, View, StyleSheet, TextInput, Image, FlatList, ScrollView, Share} from 'react-native';
+import { Text, Alert, View, StyleSheet, TextInput, Image, FlatList, ScrollView, Share, TouchableOpacity} from 'react-native';
 import { Form,Left, Right, Picker, Icon, Button, Item, Label, Input, Header, Title, Body, Container } from 'native-base';
-import { createAppContainer } from 'react-navigation';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 const data = [
@@ -13,12 +13,11 @@ const data = [
 
 const shareOption = {
   title : "Title",
-  message : "message dasdsa"
+  message : "message"
 }
 
 
 export default class Detail extends Component  {
-
 
   constructor(props)
 {
@@ -29,20 +28,6 @@ export default class Detail extends Component  {
 onSharePress =()=>
 Share.share(shareOption);
 
-FlatItem({item, index}){
-    return(
-      
-      <View style={{flexDirection:"row"}}>
-        <View key={index} style={styles.viewImageList}>
-            <Image style={styles.imageScroll} source={{uri: item.url}}  />
-        </View>
-        <View>
-            <Text style={styles.textImageList}>{item.title}</Text>
-            <Text style={styles.dateImageList}>{item.date}</Text>
-        </View>
-      </View>
-    )
-}
 
 render () {
 return(
@@ -60,15 +45,6 @@ return(
         <Right>
           <Button onPress={this.onSharePress}>
             <Icon name='share' />
-            {/* <Picker 
-              mode="dropdown"
-              iosHeader="Select your SIM"
-              iosIcon={<Icon name="arrow-dropdown-circle" style={{ color: "#007aff", fontSize: 25 }} />}
-              style={{ width: undefined }} 
-              >
-                <Item label="Wallet" value="key0" />
-                <Item label="ATM Card" value="key1" />
-            </Picker>             */}
           </Button>
         </Right>
       </Header>
@@ -79,7 +55,19 @@ return(
         <FlatList         
           scrollEnabled={true}       
           data={data}
-          renderItem={this.FlatItem}
+          renderItem={({item,index})=>(
+            <View style={{flexDirection:"row"}}>
+              <View key={index} style={styles.viewImageList}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('episode', {title:item.title})}>
+                  <Image style={styles.imageScroll} source={{uri: item.url}}  />
+                </TouchableOpacity>
+              </View>
+              <View>
+                <Text style={styles.textImageList}>{item.title}</Text>
+                <Text style={styles.dateImageList}>{item.date}</Text>
+              </View>
+            </View>
+          )}
         />
       </ScrollView>
     </View>
@@ -87,6 +75,7 @@ return(
 )}
 
 }
+
 
 const styles = StyleSheet.create({
     imageHeader : {
