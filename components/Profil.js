@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Text, Alert, View, StyleSheet, TextInput, Image} from 'react-native';
 import { Form,Left, Right, Picker, Icon, Button, Item, Label, Input, Header, Title, Body, Container } from 'native-base';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import editPage from './profile/Edit'
 
+const name = 'Your Name';
+const image = '../assets/image/user.png'
 
-
-export default class Profile extends Component  {
+class Profile extends Component  {
 
 
   constructor(props)
@@ -22,16 +26,29 @@ return(
           <Title><Text>Profile</Text></Title>
         </Body>
         <Right>
-          <Button onPress={this.onSharePress}>
+          <Button onPress={() => this.props.navigation.navigate('edit', {
+            url : image,
+            name : name
+          })}>
             <Icon name="ios-create" />
           </Button>
         </Right>
       </Header>
       <View>
-        <Image style={styles.imageProfile} source={require('../assets/image/user.png')}></Image>
+      {
+        this.props.navigation.getParam('url') ? 
+            <Image style={styles.avatar} source={this.props.navigation.getParam('url')}></Image>
+        :
+            <Image style={styles.imageProfile} source={require('../assets/image/user.png')}></Image>
+      }  
       </View>
       <View>
-        <Text style={styles.nameText}>Youre Name</Text>
+      {
+            this.props.navigation.getParam('name') ?
+            <Text style={styles.nameText}>{this.props.navigation.getParam('name')}</Text> :
+            <Text style={styles.nameText}>Youre Name</Text>
+          }
+        
       </View>
       <View>
         <Button iconRight info style={styles.buttonProfile}><Text style={styles.textButtonProfile}>My Webtoon Creation</Text><Icon name="ios-arrow-forward"/></Button>
@@ -41,6 +58,29 @@ return(
 )}
 
 }
+
+const appNavigator = createStackNavigator({
+  profile : {
+    screen : Profile,
+    navigationOptions:{
+      header:null
+    }
+  },
+    edit : {
+    screen : editPage,
+    navigationOptions:{
+      header:null
+    }
+  },
+},
+ {
+   initialRouteName : 'profile'
+ }
+ )
+
+ const appContainer = createAppContainer(appNavigator)
+
+export default appContainer
 
 const styles = StyleSheet.create({
   imageProfile : {
@@ -62,6 +102,14 @@ const styles = StyleSheet.create({
   },
   textButtonProfile : {
     fontWeight : "bold",
-    fontSize : 20
+    fontSize : 20,
+    marginLeft : 10
   },
+  avatar: {
+    borderRadius: 100,
+    width : 200,
+    height : 200,
+    alignSelf : "center",
+    marginTop : 60
+}
 });
