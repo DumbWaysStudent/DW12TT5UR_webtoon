@@ -4,10 +4,10 @@ import { Form, Icon, Button, Item, Label, Input, Header, Left, Body, Title, Cont
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 const data = [
-    {id : 0, title : 'Cover', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
-    {id : 1, title : 'Introduction', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
-    {id : 2, title : 'Episode 1', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
-    {id : 3, title : 'Episode 2', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 0,date :  "1 Desember 2018", title : 'Cover', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 1,date :  "7 Desember 2018", title : 'Introduction', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 2,date :  "14 Desember 2018", title : 'Episode 1', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 3,date :  "21 Desember 2018", title : 'Episode 2', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
   ]
 
 export default class Editwebtoon extends Component  {
@@ -64,7 +64,7 @@ return(
                     </View>
                     <View>
                         <Text style={styles.textImageList}>{item.title}</Text>
-                        <Button style={styles.buttonDelete}><Text style={styles.textButtonDelete}>Delete</Text></Button>
+                        <Text style={styles.dateImageList}>{item.date}</Text>
                     </View>
                 </View>
                 )}
@@ -159,6 +159,11 @@ textButtonDelete: {
     fontWeight : "bold",
     
 },
+dateImageList : {
+    fontWeight : "bold",
+    fontSize : 12,
+    marginLeft : 20
+  },
   });
  
  
