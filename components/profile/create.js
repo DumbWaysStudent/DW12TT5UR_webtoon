@@ -51,7 +51,7 @@ return(
         </View>          
 
         <View>
-            <ScrollView style={{height:"50%"}}>
+            <ScrollView style={{height:"40%"}}>
                 <FlatList         
                     scrollEnabled={true}                 
                     data={data}
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
    },
 buttonAdd: {
     height: 55,
-    marginTop : 20,
+    marginTop : 10,
     width : "80%",
     alignSelf : "center",
     
