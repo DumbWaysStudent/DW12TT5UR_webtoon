@@ -56,17 +56,17 @@ return(
                     scrollEnabled={true}                 
                     data={data}
                     renderItem={({item,index})=>(
-                    <View style={{flexDirection:"row"}}>
-                    <View key={index} style={styles.viewImageList}>
-                        <TouchableOpacity>
-                            <Image style={styles.imageScroll} source={{uri: item.url}}  />
-                        </TouchableOpacity>
-                    </View>
-                    <View>
-                        <Text style={styles.textImageList}>{item.title}</Text>
-                        <Text style={styles.dateImageList}>{item.date}</Text>
-                    </View>
-                </View>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('editEpisode')}>
+                        <View style={{flexDirection:"row"}}>     
+                            <View key={index} style={styles.viewImageList}>
+                                <Image style={styles.imageScroll} source={{uri: item.url}}  />
+                            </View>
+                            <View>
+                                <Text style={styles.textImageList}>{item.title}</Text>
+                                <Text style={styles.dateImageList}>{item.date}</Text>
+                            </View> 
+                        </View>
+                    </TouchableOpacity>
                 )}
                 />
             </ScrollView>  

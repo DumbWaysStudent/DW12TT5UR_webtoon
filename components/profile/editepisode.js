@@ -4,13 +4,13 @@ import { Form, Icon, Button, Item, Label, Input, Header, Left, Body, Title, Cont
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 const data = [
-    {id : 0, date :  "12 Desember", title : 'Episode 1', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
-    {id : 1, date :  "19 Desember", title : 'Episode 2', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
-    {id : 2, date :  "26 Desember", title : 'Episode 3', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
-    {id : 3, date :  "5 Januari", title : 'Episode 4', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 0, title : 'Cover.png', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 1, title : 'Introduction.png', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 2, title : 'Episode 1.png', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 3, title : 'Episode 2.png', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
   ]
 
-export default class Create extends Component  {
+export default class Editepisode extends Component  {
 
 
   constructor(props)
@@ -36,7 +36,7 @@ return(
                 </Button>
             </Left>      
             <Body>
-                <Title><Text>Create Webtoon</Text></Title>
+                <Title><Text>Edit Episode</Text></Title>
             </Body>
             <Right>
                 <Button transparent onPress={()=>this.props.navigation.goBack()}>
@@ -45,33 +45,33 @@ return(
             </Right>    
         </Header>
         <View>
-            <Text style={styles.textTitle}>Title</Text>
+            <Text style={styles.textTitle}>Name</Text>
             <TextInput style={styles.title} onChangeText={this.search} value={this.state.searchText}/>      
-            <Text style={styles.textTitle}>Episode</Text>
+            <Text style={styles.textTitle}>Add Images</Text>
         </View>          
 
         <View>
-            <ScrollView style={{height:"50%"}}>
+            <ScrollView style={{height:"35%"}}>
                 <FlatList         
                     scrollEnabled={true}                 
                     data={data}
                     renderItem={({item,index})=>(
-                    <View style={{flexDirection:"row"}}>
-                    <View key={index} style={styles.viewImageList}>
-                        <TouchableOpacity >
-                            <Image style={styles.imageScroll} source={{uri: item.url}}  />
-                        </TouchableOpacity>
-                    </View>
-                    <View>
-                        <Text style={styles.textImageList}>{item.title}</Text>
-                        <Text style={styles.episodeImageList}>{item.date}</Text>
-                    </View>
-                </View>
+                    <TouchableOpacity>
+                        <View style={{flexDirection:"row"}}>     
+                            <View key={index} style={styles.viewImageList}>
+                                <Image style={styles.imageScroll} source={{uri: item.url}}  />
+                            </View>
+                            <View>
+                                <Text style={styles.textImageList}>{item.title}</Text>
+                            </View> 
+                        </View>
+                    </TouchableOpacity>
                 )}
                 />
             </ScrollView>  
             <View>
-                <Button onPress={() => {this.props.navigation.navigate('createEpisode')}} info style={styles.buttonAdd}><Text style={styles.textButtonAdd}>+ Add Episode</Text></Button>
+                <Button info style={styles.buttonAdd}><Text style={styles.textButtonAdd}>+ Images</Text></Button>
+                <Button info style={styles.buttonDeleteWebtoon}><Text style={styles.textButtonAdd}>Delete Episode</Text></Button>
             </View>
         </View>
     </View>
@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
        marginTop : 15,
        fontSize : 20,
        fontWeight : "bold",
-       marginBottom : 20,
       },
 
     viewImageList : {
@@ -122,6 +121,8 @@ buttonAdd: {
     marginTop : 20,
     width : "80%",
     alignSelf : "center",
+    borderWidth : 2,
+    borderColor : "black"
     
 },
 textButtonAdd: {
@@ -132,6 +133,36 @@ textButtonAdd: {
     marginLeft : 30,
     
 },
+buttonDeleteWebtoon: {
+    height: 55,
+    marginTop : 20,
+    width : "80%",
+    backgroundColor : "tomato",
+    alignSelf : "center",
+    borderWidth : 2,
+    borderColor : "black"
+    
+},
+buttonDelete: {
+    width : 80,
+    marginLeft : 20,
+    height : 40,
+    backgroundColor : "tomato",
+    borderWidth : 2,
+    borderColor : "black"
+    
+},
+textButtonDelete: {
+    paddingLeft : 15,
+    backgroundColor : "tomato",
+    fontWeight : "bold",
+    
+},
+dateImageList : {
+    fontWeight : "bold",
+    fontSize : 12,
+    marginLeft : 20
+  },
   });
  
  
