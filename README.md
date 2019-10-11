@@ -59,7 +59,6 @@ Webtoon is a platform for comic creators to post their comics. We’re available
 ## Prerequisites
 * Make sure You had been install NodeJs in your system https://nodejs.org/
 * Then install React Native https://facebook.github.io/react-native/
-* Don’t forget Meteor Js as the backend https://www.meteor.com/
 
 ## Installation & Configuration
 Follow these step to install
