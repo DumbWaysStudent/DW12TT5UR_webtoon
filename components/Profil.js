@@ -7,6 +7,7 @@ import editPage from './profile/Edit'
 import myWebtoonPage from './profile/Mywebtoonpage'
 import createWebtoonPage from './profile/create'
 import createEpisodePage from './profile/createepisode'
+import editWebtoonPage from './profile/editwebtoon'
 
 const name = 'Your Name';
 const image = '../assets/image/user.png'
@@ -93,6 +94,13 @@ const appNavigator = createStackNavigator({
       header:null
     }
   },
+  editWebtoon : {
+    screen : editWebtoonPage,
+    navigationOptions:{
+      header:null
+    }
+  },
+
 },
  {
    initialRouteName : 'profile'

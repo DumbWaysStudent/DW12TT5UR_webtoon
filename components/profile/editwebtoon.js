@@ -4,13 +4,13 @@ import { Form, Icon, Button, Item, Label, Input, Header, Left, Body, Title, Cont
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 const data = [
-    {id : 0, date :  "12 Desember", title : 'The Secret Of Angel', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
-    {id : 1, date :  "19 Desember", title : 'Pasutri Gaje', url : 'https://cdn.idntimes.com/content-images/community/2019/03/6d0a9079a454d64fc74322862c0de1ed-66a00b52de00ef98aae34bee81593598_600x400.jpg'},
-    {id : 2, date :  "26 Desember", title : 'Young Mom', url : 'https://swebtoon-phinf.pstatic.net/20190826_51/1566745782829lKBue_JPEG/thumb_M.jpg'},
-    {id : 3, date :  "5 Januari", title : 'Terlalu Cantik', url : 'https://scontent-iad3-1.cdninstagram.com/vp/db85664d04ba24a8661595129264ae28/5E3A9C8B/t51.2885-15/e35/66481383_474472033103695_856334970972400762_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=107'},
+    {id : 0, title : 'Cover', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 1, title : 'Introduction', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 2, title : 'Episode 1', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
+    {id : 3, title : 'Episode 2', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
   ]
 
-export default class Create extends Component  {
+export default class Editwebtoon extends Component  {
 
 
   constructor(props)
@@ -36,7 +36,7 @@ return(
                 </Button>
             </Left>      
             <Body>
-                <Title><Text>Create Webtoon</Text></Title>
+                <Title><Text>Edit Webtoon</Text></Title>
             </Body>
             <Right>
                 <Button transparent onPress={()=>this.props.navigation.goBack()}>
@@ -51,27 +51,28 @@ return(
         </View>          
 
         <View>
-            <ScrollView style={{height:"50%"}}>
+            <ScrollView style={{height:"35%"}}>
                 <FlatList         
                     scrollEnabled={true}                 
                     data={data}
                     renderItem={({item,index})=>(
                     <View style={{flexDirection:"row"}}>
                     <View key={index} style={styles.viewImageList}>
-                        <TouchableOpacity >
+                        <TouchableOpacity>
                             <Image style={styles.imageScroll} source={{uri: item.url}}  />
                         </TouchableOpacity>
                     </View>
                     <View>
                         <Text style={styles.textImageList}>{item.title}</Text>
-                        <Text style={styles.episodeImageList}>{item.date}</Text>
+                        <Button style={styles.buttonDelete}><Text style={styles.textButtonDelete}>Delete</Text></Button>
                     </View>
                 </View>
                 )}
                 />
             </ScrollView>  
             <View>
-                <Button onPress={() => {this.props.navigation.navigate('createEpisode')}} info style={styles.buttonAdd}><Text style={styles.textButtonAdd}>+ Add Episode</Text></Button>
+                <Button info style={styles.buttonAdd}><Text style={styles.textButtonAdd}>+ Add Episode</Text></Button>
+                <Button info style={styles.buttonDeleteWebtoon}><Text style={styles.textButtonAdd}>Delete Webtoon</Text></Button>
             </View>
         </View>
     </View>
@@ -121,6 +122,8 @@ buttonAdd: {
     marginTop : 20,
     width : "80%",
     alignSelf : "center",
+    borderWidth : 2,
+    borderColor : "black"
     
 },
 textButtonAdd: {
@@ -130,7 +133,32 @@ textButtonAdd: {
     textAlign : "center",
     marginLeft : 30,
     
-}
+},
+buttonDeleteWebtoon: {
+    height: 55,
+    marginTop : 20,
+    width : "80%",
+    backgroundColor : "tomato",
+    alignSelf : "center",
+    borderWidth : 2,
+    borderColor : "black"
+    
+},
+buttonDelete: {
+    width : 80,
+    marginLeft : 20,
+    height : 40,
+    backgroundColor : "tomato",
+    borderWidth : 2,
+    borderColor : "black"
+    
+},
+textButtonDelete: {
+    paddingLeft : 15,
+    backgroundColor : "tomato",
+    fontWeight : "bold",
+    
+},
   });
  
  

@@ -39,7 +39,7 @@ return(
             </Button>
             </Left>      
             <Body>
-            <Title><Text>{JSON.stringify(this.props.navigation.getParam('title'))}</Text></Title>
+            <Title><Text>{this.props.navigation.getParam('title')}</Text></Title>
             </Body>
             <Right>
             <Button onPress={this.onSharePress}>
