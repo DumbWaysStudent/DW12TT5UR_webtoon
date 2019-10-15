@@ -8,6 +8,7 @@ const port = 5000
 const AuthController = require('./controllers/auth')
 const RegisterController = require('./controllers/register')
 const WebtoonsController = require('./controllers/webtoon')
+const DetailWebtoonsController = require('./controllers/detail_webtoon')
 
 app.use(bodyParser.json())
 
@@ -30,6 +31,9 @@ app.group("/api/v1", (router) => {
 
     //SEARCH SEMUA WEBTOON BERDASARKAN TITLE
     router.get('/webtoon/title/:title', WebtoonsController.showTitle)
+
+    //GET SEMUA EPISODE WEBTOON TERTENTU
+    router.get('/webtoon/:id/episodes', DetailWebtoonsController.showEpisode)
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))
