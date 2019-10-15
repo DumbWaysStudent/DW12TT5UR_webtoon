@@ -8,22 +8,22 @@ const data = [
     {id : 1, title : 'Introduction.png', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
     {id : 2, title : 'Episode 1.png', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
     {id : 3, title : 'Episode 2.png', url : 'https://swebtoon-phinf.pstatic.net/20180517_37/1526523687139iRpgs_JPEG/thumb_M.jpg'},
-  ]
+]
 
 export default class Editepisode extends Component  {
 
 
-  constructor(props)
+constructor(props)
 {
-  super(props)
-  this.state = {
+super(props)
+    this.state = {
     searchText: "",
-  };
+    };
 }
 
 search = (searchText) => {
     this.setState({searchText: searchText});
-  };
+};
 
 
 render () {
@@ -81,41 +81,41 @@ return(
 const styles = StyleSheet.create({
     title : {
         borderWidth : 2,
-       alignContent : "center",
-       marginLeft : 20,
-       marginRight : 20,
-       marginTop : 15,
-       marginBottom : 20,
-      },
-      textTitle : {
-       alignContent : "center",
-       marginLeft : 20,
-       marginRight : 20,
-       marginTop : 15,
-       fontSize : 20,
-       fontWeight : "bold",
-      },
+        alignContent : "center",
+        marginLeft : 20,
+        marginRight : 20,
+        marginTop : 15,
+        marginBottom : 20,
+    },
+    textTitle : {
+        alignContent : "center",
+        marginLeft : 20,
+        marginRight : 20,
+        marginTop : 15,
+        fontSize : 20,
+        fontWeight : "bold",
+    },
 
     viewImageList : {
-     flexDirection : "row",
-   },
-   imageScroll : {
-     marginLeft : 20,
-     marginTop : 20,
-     width : 80,
-     height : 80,
-   },
-   textImageList : {
-     fontWeight : "bold",
-     fontSize : 20,
-     marginLeft : 20,
-     marginTop : 30,
-   },
-   episodeImageList : {
-     fontWeight : "bold",
-     fontSize : 12,
-     marginLeft : 20
-   },
+        flexDirection : "row",
+    },
+    imageScroll : {
+        marginLeft : 20,
+        marginTop : 20,
+        width : 80,
+        height : 80,
+    },
+    textImageList : {
+        fontWeight : "bold",
+        fontSize : 20,
+        marginLeft : 20,
+        marginTop : 30,
+    },
+    episodeImageList : {
+        fontWeight : "bold",
+        fontSize : 12,
+        marginLeft : 20
+    },
 buttonAdd: {
     height: 55,
     marginTop : 20,
@@ -162,8 +162,8 @@ dateImageList : {
     fontWeight : "bold",
     fontSize : 12,
     marginLeft : 20
-  },
-  });
+},
+});
  
  
 

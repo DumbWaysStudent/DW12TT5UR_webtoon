@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Text, Alert, View, StyleSheet, TextInput, Image} from 'react-native';
 import { Form, Icon, Button, Item, Label, Input } from 'native-base';
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import indexPage from './Index'
 
 
-class Login extends Component  {
+export default class Login extends Component  {
 
   constructor(props)
 {
@@ -102,33 +100,15 @@ return(
     <View style={styles.buttonLogin}>
       {
         this.state.inputPassword == '' || this.state.emailVerification == false ?
-        <Button disabled onPress={() => this.props.navigation.navigate('home')} title="Log IN"><Text style={styles.buttonLoginText}>Log In</Text></Button>
+        <Button disabled onPress={() => this.props.navigation.navigate('ScreenNav')} title="Log IN"><Text style={styles.buttonLoginText}>Log In</Text></Button>
         :
-        <Button title="Log IN" onPress={() => this.props.navigation.navigate('home')}><Text style={styles.buttonLoginText}>Log In</Text></Button>
+        <Button title="Log IN" onPress={() => this.props.navigation.navigate('ScreenNav')}><Text style={styles.buttonLoginText}>Log In</Text></Button>
       }
     </View>   
   </View>
 )}
 
 }
-
-const appNavigator = createSwitchNavigator({
-  home : {
-    screen : indexPage
-  },
-  login : {
-    screen : Login
-  }
-},
-  {
-    initialRouteName : 'login'
-  }
-)
-
-const appContainer = createAppContainer(appNavigator)
-
-export default appContainer
-
 
 
 const styles = StyleSheet.create({
@@ -141,7 +121,7 @@ const styles = StyleSheet.create({
     textAlign : "center",
     paddingBottom : 10,
     paddingTop : '10%',
-    fontFamily : 'foo'
+    // fontFamily : 'foo'
   },
   textLoginSmall : {
     fontSize : 20,
