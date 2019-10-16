@@ -45,7 +45,7 @@ const DetailWebtoon = models.detail_webtoons
 
 
     //Get Semua Detail Episode Tertentu
-exports.showEpisodes = (req, res)=>{
+    exports.showEpisodes = (req, res)=>{
     const webtoonId = req.params.id_webtoon
     const episodeId = req.params.id_episode
     DetailWebtoon.findOne({
@@ -63,3 +63,15 @@ exports.showEpisodes = (req, res)=>{
         .then(episodes => res.send(episodes))
     })
 };
+
+//TAB PROFILE SCREEN
+//MY DETAIL EPISODE
+//CREATE IMAGE FOR DETAIL EPISODE
+exports.storeMyDetailEpisode = (req, res) => {
+    const {image, page} = req.body;
+    DetailEpisode.create({
+        episode_id: req.params.episode_id,
+        page,
+        image
+    }).then(result => res.send(result));
+}
