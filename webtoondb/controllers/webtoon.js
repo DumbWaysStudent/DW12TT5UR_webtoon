@@ -58,3 +58,17 @@ exports.searchTitle = (req, res) => {
     exports.storeMyWebtoon = (req, res) => {
         Webtoon.create(req.body).then(result=> res.send(result))
     }
+
+    //UPDATE MY WEBTOON
+    exports.updateMyWebtoon = (req, res) => {
+        const {title, genre, isFavorite, image} = req.body
+        Webtoon.update({
+            title,
+            genre,
+            isFavorite,
+            image
+        },
+        {
+            where:{id: req.params.webtoon_id, createdBy: req.params.user_id},
+        }).then(res.send(req.body))
+    }
