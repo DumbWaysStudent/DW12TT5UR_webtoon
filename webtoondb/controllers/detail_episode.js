@@ -75,3 +75,11 @@ exports.storeMyDetailEpisode = (req, res) => {
         image
     }).then(result => res.send(result));
 }
+
+//DELETE IMAGE DETAIL EPISODE
+exports.deleteMyDetailEpisode = (req, res) => {
+    const {image_id} = req.params;
+    DetailEpisode.destroy({where: {id: image_id}}).then(result => res.send({
+        ...req.body
+    }));
+}

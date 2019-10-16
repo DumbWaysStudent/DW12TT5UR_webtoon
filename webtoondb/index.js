@@ -82,6 +82,9 @@ app.group("/api/v1", (router) => {
     //MY DETAIL EPISODE
     //CREATE IMAGE FOR DETAIL EPISODE
     router.post('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id', authenticated, DetailEpisodesController.storeMyDetailEpisode)
+    //DELETE IMAGE DETAIL EPISODE
+    router.delete('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id/image/:image_id', authenticated, DetailEpisodesController.deleteMyDetailEpisode)
+
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))
