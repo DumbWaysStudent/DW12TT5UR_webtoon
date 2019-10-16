@@ -5,11 +5,17 @@ require('express-group-routes')
 const app = express();
 const port = 5000
 
+//controllers
 const AuthController = require('./controllers/auth')
 const RegisterController = require('./controllers/register')
 const WebtoonsController = require('./controllers/webtoon')
 const DetailWebtoonsController = require('./controllers/detail_webtoon')
 const DetailEpisodesController = require('./controllers/detail_episode')
+const FavoriteController = require('./controllers/favorite')
+
+//middlewares
+const {authenticated} = require('./middleware');
+
 
 app.use(bodyParser.json())
 
@@ -24,6 +30,8 @@ app.group("/api/v1", (router) => {
     //register
     router.post('/register', RegisterController.register)
 
+
+    //TAB FOR YOU SCREEN
     //GET SEMUA WEBTOON
     router.get('/webtoon', WebtoonsController.index)
 
@@ -38,6 +46,13 @@ app.group("/api/v1", (router) => {
 
     //GET SEMUA DETAIL EPISODE TERTENTU
     router.get('/webtoon/:id_webtoon/episode/:id_episode', DetailEpisodesController.showEpisodes)
+
+
+
+
+    //TAB FAVORITE
+    //Get Semua Webtoon Favorite
+    router.get( '/favorite/:id', authenticated, FavoriteController.getFavorite)
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))
