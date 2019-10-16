@@ -52,7 +52,10 @@ app.group("/api/v1", (router) => {
 
     //TAB FAVORITE
     //Get Semua Webtoon Favorite
-    router.get( '/favorite/:id', authenticated, FavoriteController.getFavorite)
+    router.get( '/favorite/:id', authenticated, FavoriteController.getFavorite)  ///api/v1/favorite/1?is_favorite=true
+
+    //19. SEARCH SEMUA WEBTOON BERDASARKAN TITLE
+    router.get('/webtoons', authenticated, WebtoonsController.searchTitle) // localhost:5000/api/v1/webtoons?title=dice
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))
