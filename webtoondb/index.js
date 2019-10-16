@@ -62,14 +62,17 @@ app.group("/api/v1", (router) => {
     //GET SEMUA MY WEBTOON CREATION
     router.get('/user/:user_id/webtoon', authenticated, WebtoonsController.showMyCreation)
     
+    //MY WEBTOON
     //CREATE MY WEBTOON
     router.post('/user/:user_id/webtoon', authenticated, WebtoonsController.storeMyWebtoon)
-
     //UPDATE MY WEBTOON
     router.patch('/user/:user_id/webtoon/:webtoon_id', authenticated, WebtoonsController.updateMyWebtoon)
-
     //DELETE MY WEBTOON
     router.delete('/user/:user_id/webtoon/:webtoon_id', authenticated, WebtoonsController.deleteMyWebtoon)
+
+    //MY EPISODE
+    //CREATE MY EPISODE
+    router.post('/user/:user_id/webtoon/:webtoon_id/episode', authenticated, DetailWebtoonsController.storeMyEpisode)
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))

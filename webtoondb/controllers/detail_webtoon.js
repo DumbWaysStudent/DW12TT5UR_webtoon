@@ -5,3 +5,15 @@ const DetailWebtoon = models.detail_webtoons
 exports.showEpisode = (req, res) => {
     DetailWebtoon.findAll({where:{webtoon_id: req.params.id}}).then(result=> res.send(result))
 }
+
+
+//TAB MY PROFILE
+//CREATE MY EPISODE
+exports.storeMyEpisode = (req, res) => {
+    const {image, title} = req.body;
+    DetailWebtoon.create({
+        webtoon_id: req.params.webtoon_id,
+        title,
+        image
+    }).then(result => res.send(result));
+}
