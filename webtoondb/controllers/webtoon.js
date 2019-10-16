@@ -72,3 +72,15 @@ exports.searchTitle = (req, res) => {
             where:{id: req.params.webtoon_id, createdBy: req.params.user_id},
         }).then(res.send(req.body))
     }
+
+    //DELETE MY WEBTOON
+    exports.deleteMyWebtoon = (req, res) => {
+        const {user_id, webtoon_id} = req.params
+        Webtoon.destroy({
+            where : {id: webtoon_id, createdBy: user_id}
+        }).then(result => res.send({
+            id: webtoon_id,
+            message : "webtoon dihapus"
+        })
+        )
+    }
