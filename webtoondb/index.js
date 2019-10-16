@@ -52,10 +52,15 @@ app.group("/api/v1", (router) => {
 
     //TAB FAVORITE
     //Get Semua Webtoon Favorite
-    router.get( '/favorite/:id', authenticated, FavoriteController.getFavorite)  ///api/v1/favorite/1?is_favorite=true
+    router.get( '/favorite/:id', authenticated, FavoriteController.getFavorite)  //localhost:5000/api/v1/favorite/1?isFavorite=true
 
     //19. SEARCH SEMUA WEBTOON BERDASARKAN TITLE
-    router.get('/webtoons', authenticated, WebtoonsController.searchTitle) // localhost:5000/api/v1/webtoons?title=dice
+    router.get('/webtoons', WebtoonsController.searchTitle) // localhost:5000/api/v1/webtoons?title=dice
+
+
+    //TAB PROFILE SCREEN
+    //GET SEMUA MY WEBTOON CREATION
+    router.get('/user/:user_id/webtoon', authenticated, WebtoonsController.showMyCreation)
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))

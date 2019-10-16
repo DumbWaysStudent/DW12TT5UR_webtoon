@@ -2,6 +2,8 @@ const models = require('../models')
 const Webtoon = models.webtoons
 const users = models.users
 
+
+//TAB FOR YOU SCREEN
 //mengambil semua data
 exports.index = (req, res) => {
     Webtoon.findAll().then(item=>res.send(item));
@@ -42,3 +44,10 @@ exports.searchTitle = (req, res) => {
             }).then(result=>res.send(result))
         }
     };
+
+
+    //TAB PROFILE SCREEN
+    ////GET SEMUA MY WEBTOON CREATION
+    exports.showMyCreation = (req, res) => {
+        Webtoon.findAll({where:{createdBy: req.params.user_id}}).then(result=> res.send(result))
+    }
