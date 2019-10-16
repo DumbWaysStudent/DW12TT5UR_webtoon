@@ -17,3 +17,15 @@ exports.storeMyEpisode = (req, res) => {
         image
     }).then(result => res.send(result));
 }
+
+//UPDATE MY EPISODE
+exports.updateMyEpisode = (req, res) => {
+    const {image, title} = req.body;
+    DetailWebtoon.update({
+        title,
+        image
+    },
+    {
+        where: {id: req.params.episode_id}
+    }).then(res.send({...req.body}));
+}
