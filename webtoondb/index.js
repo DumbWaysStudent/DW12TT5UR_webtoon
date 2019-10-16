@@ -75,6 +75,8 @@ app.group("/api/v1", (router) => {
     router.post('/user/:user_id/webtoon/:webtoon_id/episode', authenticated, DetailWebtoonsController.storeMyEpisode)
     //UPDATE MY EPISODE
     router.patch('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id', authenticated, DetailWebtoonsController.updateMyEpisode)
+    //DELETe MY EPISODE
+    router.delete('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id', authenticated, DetailWebtoonsController.deleteMyEpisode)
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))

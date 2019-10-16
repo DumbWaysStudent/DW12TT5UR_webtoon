@@ -29,3 +29,11 @@ exports.updateMyEpisode = (req, res) => {
         where: {id: req.params.episode_id}
     }).then(res.send({...req.body}));
 }
+
+//DELETE MY EPISODE
+exports.deleteMyEpisode = (req, res) => {
+    const {episode_id} = req.params;
+    DetailWebtoon.destroy({where: {id: episode_id}}).then(result => res.send({
+        ...req.body
+    }));
+}
