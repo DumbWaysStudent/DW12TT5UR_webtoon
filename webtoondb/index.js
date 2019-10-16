@@ -9,6 +9,7 @@ const AuthController = require('./controllers/auth')
 const RegisterController = require('./controllers/register')
 const WebtoonsController = require('./controllers/webtoon')
 const DetailWebtoonsController = require('./controllers/detail_webtoon')
+const DetailEpisodesController = require('./controllers/detail_episode')
 
 app.use(bodyParser.json())
 
@@ -34,6 +35,9 @@ app.group("/api/v1", (router) => {
 
     //GET SEMUA EPISODE WEBTOON TERTENTU
     router.get('/webtoon/:id/episodes', DetailWebtoonsController.showEpisode)
+
+    //GET SEMUA DETAIL EPISODE TERTENTU
+    router.get('/webtoon/:id_webtoon/episode/:id_episode', DetailEpisodesController.showEpisodes)
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))
