@@ -1,6 +1,8 @@
 const models = require('../models')
 const Webtoon = models.webtoons
 const users = models.users
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 
 //TAB FOR YOU SCREEN
@@ -24,7 +26,7 @@ exports.showTitle = (req, res) => {
 exports.searchTitle = (req, res) => {
     if (req.query.title) {
         Webtoon.findAll({
-            where: {title: req.query.title},
+            where: {title: {[Op.like]: `%${req.query.title}%`}},
             include: [{
                 model: users,
                 as: 'userID',
@@ -47,7 +49,12 @@ exports.searchTitle = (req, res) => {
 
 
     //TAB PROFILE SCREEN
-    ////GET SEMUA MY WEBTOON CREATION
+    //GET SEMUA MY WEBTOON CREATION
     exports.showMyCreation = (req, res) => {
         Webtoon.findAll({where:{createdBy: req.params.user_id}}).then(result=> res.send(result))
+    }
+
+    //CREATE MY WEBTOON
+    exports.storeMyWebtoon = (req, res) => {
+        Webtoon.create(req.body).then(result=> res.send(result))
     }

@@ -61,6 +61,9 @@ app.group("/api/v1", (router) => {
     //TAB PROFILE SCREEN
     //GET SEMUA MY WEBTOON CREATION
     router.get('/user/:user_id/webtoon', authenticated, WebtoonsController.showMyCreation)
+    
+    //CREATE MY WEBTOON
+    router.post('/user/:user_id/webtoon', authenticated, WebtoonsController.storeMyWebtoon)
 })
 
 app.listen(port, ()=> console.log(`listen on port ${port}!`))
